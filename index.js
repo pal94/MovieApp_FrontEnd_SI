@@ -13,6 +13,8 @@ app.use(methodOverrride("_method"));
 app.use(bodyparser.json());
 app.use(bodyparser.urlencoded({extended:true}));
 
+//GET MOVIES: FETCH the url of api and store the data in an array.
+//Render it to index.ejs.
 app.get("/movies", async(req, res)=>{
         await fetch('http://ec2-3-83-241-106.compute-1.amazonaws.com:3005/movies')
        .then(response => response.json())
@@ -31,10 +33,12 @@ app.get("/movies", async(req, res)=>{
     
 });
 
+//GET new page for adding new Movie.
 app.get("/movies/new", function(req,res){
     res.render("new");
 });
 
+//GET the a movie based on ID to show the details. Added id in url.
 app.get("/movies/:id", async(req, res)=>{
     const objid = req.params.id;
     console.log("ID is "+ objid);
@@ -48,6 +52,8 @@ app.get("/movies/:id", async(req, res)=>{
         });
 });
 
+//POST new movies. FETCH the url, headers and body to 
+//post the data on the database.
 app.post("/movies",async(req, res)=>{
    const b = 
         {
@@ -73,6 +79,8 @@ app.post("/movies",async(req, res)=>{
     res.redirect('/movies');
 });
 
+
+//Get the movies details to edit the details.
 app.get("/movies/:id/edit", async(req, res)=>{
     console.log("editing");
     const objid = req.params.id;
