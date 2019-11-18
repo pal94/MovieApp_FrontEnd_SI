@@ -1,0 +1,20 @@
+<html>
+    <head>
+            <link rel="stylesheet" type="text/css" href="/assets/index.css">
+    </head>
+        <% include partials/headers.ejs %>
+    <body>
+        <div class="container">
+            <div class="well well-lg">
+                <h1>Movie Name: <%=mov.name%></h1>
+                <p>Rating: <%=mov.rating%></p>
+                <span><p>Genre: <%=mov.genre%></p></span>
+                <P>Amount<%=mov.amount%></P>
+                <form action="/movies/<%=mov._id%>?_method=DELETE" method="POST">
+                    <button>Delete</button>
+                </form>
+            </div>
+        </div>
+        
+    </body>
+</html>

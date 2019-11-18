@@ -1,0 +1,17 @@
+<html>
+    
+        <% include partials/headers.ejs %>
+        <div>
+            <div>
+                <h2>Edit Movie</h2>
+                <form action="/movies/<%=mov._id%>", method="POST">
+                    <input type="text", name="mov[name]" value="<%=mov.name%>">
+                    <input type="text", name="mov[genre]" value="<%=mov.genre%>">
+                    <input type="text", name="mov[rating]" value="<%=mov.rating%>">
+                    <input type="text", name="mov[amount]" value="<%=mov.amount%>">
+                    <input type="text", name="mov[available]" value="<%=mov.available%>">
+                    <input type="submit">
+                </form>
+            </div>
+        </div>
+</html>
