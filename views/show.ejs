@@ -14,7 +14,7 @@
                 <h1>Movie Name: <%=mov.name%></h1>
                 <p>Rating: <%=mov.rating%></p>
                 <span><p>Genre: <%=mov.genre%></p></span>
-                <P>Amount<%=mov.amount%></P>
+                <P>Amount: <%=mov.amount%></P>
                 <form action="/movies/<%=mov._id%>?_method=DELETE" method="POST">
                     <button>Delete</button>
                 </form>
