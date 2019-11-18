@@ -11,12 +11,15 @@
     </head>
         <% include partials/headers.ejs %>
     <body>
-        <table>
-            <th>Movie</th>
-            <th>Rating</th>
-            <th>Availablity</th>
+    <div class="container">
+        <table class="table table-striped"> 
+            <thread>
+                <th>Movie</th>
+                <th>Rating</th>
+                <th>Availablity</th>
+            </thread>
         <% for(var i=0; i< mov.length; i++){ %>
-            <div>
+           <tbody>
                 <tr>
                        <td><%=mov[i].name %></td> 
                         <td><p><%= mov[i].rating %></p></td>
@@ -25,8 +28,8 @@
                         <td><a href="/movies/<%=mov[i]._id%>">Show</a></td>
                 </tr>
                 <% } %>
-            </div>
+            </tbody>
         </table>
-
+        </div>
     </body>
 </html>

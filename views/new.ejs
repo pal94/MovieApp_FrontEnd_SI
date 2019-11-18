@@ -13,12 +13,22 @@
             <div>
                 <h2>New Movie</h2>
                 <form id ="#movieform" action="/movies", method="POST">
+                <div class="form-group">
                     <input type="text", name="mov[name]" placeholder="name">
+                </div>
+                <div class="form-group">
                     <input type="text", name="mov[genre]" placeholder="genre">
+                </div>
+                <div class="form-group">
                     <input type="number", name="mov[rating]" min= "1" max="5" placeholder="rating">
+                </div>
+                <div class="form-group">
                     <input type="number", name="mov[amount]" placeholder="amount">
+                </div>
+                <div class="form-group">
                     <input type="text", name="mov[available]" placeholder="availablity">
-                    <input type="submit">
+                </div>
+                    <button type="submit" class="btn btn-default">Submit</button>
                 </form>
             </div>
         </div>
