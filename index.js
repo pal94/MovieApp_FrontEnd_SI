@@ -14,7 +14,7 @@ app.use(bodyparser.json());
 app.use(bodyparser.urlencoded({extended:true}));
 
 app.get("/movies", async(req, res)=>{
-        await fetch('http://ec2-3-82-160-10.compute-1.amazonaws.com:3005/movies')
+        await fetch('http://ec2-3-83-241-106.compute-1.amazonaws.com:3005/movies')
        .then(response => response.json())
        .then(data => {
          let arr = [];
@@ -38,7 +38,7 @@ app.get("/movies/new", function(req,res){
 app.get("/movies/:id", async(req, res)=>{
     const objid = req.params.id;
     console.log("ID is "+ objid);
-    await fetch('http://ec2-3-82-160-10.compute-1.amazonaws.com:3005/movies/'+ objid)
+    await fetch('http://ec2-3-83-241-106.compute-1.amazonaws.com:3005/movies/'+ objid)
        .then(response => response.json())
        .then(data => {
          res.render("show", {mov: data.movie});
@@ -57,7 +57,7 @@ app.post("/movies",async(req, res)=>{
             amount: req.body.mov.amount,
             available: req.body.mov.available
         }
-    const response = await fetch("http://ec2-3-82-160-10.compute-1.amazonaws.com:3005/movies", {
+    const response = await fetch("http://ec2-3-83-241-106.compute-1.amazonaws.com:3005/movies", {
     method: "POST",
     headers:{
          'Accept': 'application/json',
@@ -78,7 +78,7 @@ app.get("/movies/:id/edit", async(req, res)=>{
     const objid = req.params.id;
     console.log("ID is "+ objid);
     //console.log(req.params.genre);
-    await fetch("http://ec2-3-82-160-10.compute-1.amazonaws.com:3005/movies/"+ objid + "/edit")
+    await fetch("http://ec2-3-83-241-106.compute-1.amazonaws.com:3005/movies/"+ objid + "/edit")
        .then(response => response.json())
        .then(data => {
          res.render("edit", {mov: data.movie});
@@ -92,7 +92,7 @@ app.post("/movies/:id",async(req, res)=>{
     console.log("inside put");
     const id= req.params.id;
     console.log(req.body.mov)
-     const response = await fetch("http://ec2-3-82-160-10.compute-1.amazonaws.com:3005/movies/" + id,{
+     const response = await fetch("http://ec2-3-83-241-106.compute-1.amazonaws.com:3005/movies/" + id,{
      method: "PUT",
      headers:{
           'Accept': 'application/json',
@@ -117,7 +117,7 @@ app.post("/movies/:id",async(req, res)=>{
  app.delete("/movies/:id",async(req, res)=>{
     console.log("inside delete");
     const id= req.params.id;
-     await fetch("http://ec2-3-82-160-10.compute-1.amazonaws.com:3005/movies/"+id , {
+     await fetch("http://ec2-3-83-241-106.compute-1.amazonaws.com:3005/movies/"+id , {
      method: "DELETE",
      headers:{
         'Accept': 'application/json',
